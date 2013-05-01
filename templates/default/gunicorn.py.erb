@@ -27,6 +27,11 @@ workers = <%= @worker_processes %>
 # Type of worker to use
 worker_class = "<%= @worker_class %>"
 
+# Logging
+accesslog = "<%= @accesslog %>"
+errorlog = "<%= @errorlog %>"
+loglevel = "<%= @loglevel %>"
+
 <%- if @server_hooks[:on_starting] %>
 # What to do before the master process is initialized
 def on_starting(server):

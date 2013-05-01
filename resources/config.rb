@@ -43,6 +43,10 @@ attribute :owner, :regex => Chef::Config[:user_valid_regex]
 attribute :group, :regex => Chef::Config[:group_valid_regex]
 attribute :pid, :kind_of => String
 
+attribute :loglevel, :kind_of => [String, Symbol], :default => :info
+attribute :accesslog, :kind_of => String, :default => "-"
+attribute :errorlog, :kind_of => String, :default => "-"
+
 VALID_SERVER_HOOK_NAMES = [
   :on_starting, :on_reload, :when_ready, :pre_fork, :post_fork,
   :pre_exec, :pre_request, :post_request, :worker_exit
