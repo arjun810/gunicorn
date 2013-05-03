@@ -24,7 +24,7 @@ attribute :cookbook, :kind_of => String, :default => 'gunicorn'
 attribute :owner, :regex => Chef::Config[:user_valid_regex]
 attribute :group, :regex => Chef::Config[:group_valid_regex]
 
-attribtue :server_name, :kind_of => String, :default => 'localhost'
+attribute :server_name, :kind_of => String, :default => 'localhost'
 attribute :access_log,  :kind_of => String
 attribute :error_log,   :kind_of => String
 attribute :static_root, :kind_of => String
