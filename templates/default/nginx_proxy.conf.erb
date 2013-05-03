@@ -25,6 +25,5 @@ server {
         add_header Cache-Control "public";
     }
 
-    # what to serve if upstream is not available or crashes
     error_page 500 502 503 504 /static/50x.html;
 }
