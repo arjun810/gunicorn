@@ -19,6 +19,23 @@ server {
       proxy_pass http://app_server;
     }
 
+    # From http://www.xormedia.com/django-allowed-hosts-and-amazon-elastic-load-balancer/
+    #
+    # This gets rid of some of the security that allowed_hosts is supposed to
+    # provide, so it'd be nice if there were a better way.
+    #
+    # if the host header is an ip address change it to www.mysite.com
+    # this works around requests coming from ELB with either the instance's
+    # internal ip address in the case of health checks or an unknown internal
+    # ip address in the case of latency checks. translating them to a known
+    # good host header makes django's ALLOWED_HOSTS happy
+
+    set $my_host $host;
+
+    if ($host ~ "\d+\.\d+\.\d+\.\d+") {
+        set $my_host "shopsync.com";
+    }
+    
     location /static {
         alias <%= @static_root %>;
         expires 1y;
