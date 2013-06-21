@@ -30,11 +30,11 @@ server {
     # ip address in the case of latency checks. translating them to a known
     # good host header makes django's ALLOWED_HOSTS happy
 
-    set $my_host $host;
-
     if ($host ~ "\d+\.\d+\.\d+\.\d+") {
         set $my_host "shopsync.com";
     }
+
+    set $my_host $host;
     
     location /static {
         alias <%= @static_root %>;
