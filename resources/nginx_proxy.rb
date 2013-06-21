@@ -28,3 +28,4 @@ attribute :server_name, :kind_of => String, :default => 'localhost'
 attribute :access_log,  :kind_of => String
 attribute :error_log,   :kind_of => String
 attribute :static_root, :kind_of => String
+attribute :default_hostname, :kind_of => String

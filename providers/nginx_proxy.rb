@@ -3,7 +3,7 @@ action :create do
   Chef::Log.info("Creating #{@new_resource} at #{@new_resource.path}")  unless exists?
   
   template_variables = {}
-  %w{server_name access_log error_log static_root}.each do |a|
+  %w{server_name access_log error_log static_root default_hostname}.each do |a|
     template_variables[a.to_sym] = new_resource.send(a)
   end
   
